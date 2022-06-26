@@ -29,7 +29,7 @@ namespace Discount.Grpc.Services
 			{
 				throw new RpcException(new Status(StatusCode.NotFound,$"Discount with name {request.ProductName} not found"));
 			}
-
+			_logger.LogInformation("Discount is retrieved for ProductName: {productName} Amount: {amount}", request.ProductName, coupon.Amount);
 			return _mapper.Map<CouponModel>(coupon);
 		}
 
